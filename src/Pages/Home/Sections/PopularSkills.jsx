@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
-import skills from '../../../../public/skills.json'; // Assuming this is an array of skill objects
+import skills from '../../../../public/skills.json';
+import { useNavigate } from 'react-router';
 
 const PopularSkills = () => {
   const [showAll, setShowAll] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = (id) => {
     console.log(`Clicked skill with ID: ${id}`);
   };
 
   const visibleSkills = showAll ? skills : skills.slice(0, 8);
+
+    const goToDetails = (id) => {
+    navigate(`/skill-details/${id}`);
+  };
 
   return (
     <div className="px-4 sm:px-6">
@@ -43,7 +49,8 @@ const PopularSkills = () => {
                   <Star className="w-4 h-4" />
                   {skill.rating}
                 </span>
-                <button className="flex items-center gap-1 bg-[#5754E8] p-2 rounded-md text-white font-semibold hover:bg-[#403eea] transition">
+                <button  onClick={() => goToDetails(skill.skillId)}
+                 className="flex items-center gap-1 bg-[#5754E8] p-2 rounded-md text-white font-semibold hover:bg-[#403eea] transition">
                   View Details
                 </button>
               </div>
