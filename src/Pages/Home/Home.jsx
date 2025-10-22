@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "./Sections/HeroSection";
 import PopularSkills from "./Sections/PopularSkills";
+import SkillDetails from "./Sections/SkillDetails";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
 </h2>
 <p className="text-center mb-8 text-md w-2/4 mx-auto ">Connect with locals to exchange today’s most popular skills in a trusted space. Turn your talents into opportunities with an easy-to-use local skills marketplace.</p>
       <PopularSkills/>
+      {/* <SkillDetails/> */}
       </div>
       
     </div>
