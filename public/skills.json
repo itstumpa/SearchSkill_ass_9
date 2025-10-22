@@ -1,0 +1,98 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners. Learn basic chords, strumming patterns, and simple songs in a relaxed environment.",
+    "image": "https://i.postimg.cc/MHNJmFPk/guitar.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers. Improve fluency, pronunciation, and confidence in daily conversations.",
+    "image": "https://i.postimg.cc/J0vYXzYZ/english.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Web Development Basics",
+    "providerName": "John Doe",
+    "providerEmail": "john@skillswap.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Learn HTML, CSS, and JavaScript fundamentals. Build your first responsive website from scratch with hands-on projects.",
+    "image": "https://i.postimg.cc/kg0cqVQy/webdev.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Yoga for Beginners",
+    "providerName": "Maya Sharma",
+    "providerEmail": "maya@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Gentle yoga sessions focusing on flexibility, breathing techniques, and mindfulness. Perfect for complete beginners.",
+    "image": "https://i.postimg.cc/y8PKmX6L/yoga.jpg",
+    "category": "Fitness"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Digital Photography",
+    "providerName": "David Chen",
+    "providerEmail": "david@skillswap.com",
+    "price": 25,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Master your camera settings, composition, and lighting. Learn to capture stunning photos with your DSLR or mirrorless camera.",
+    "image": "https://i.postimg.cc/g0C2jZ8Y/photography.jpg",
+    "category": "Arts"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Spanish Conversation",
+    "providerName": "Maria Rodriguez",
+    "providerEmail": "maria@skillswap.com",
+    "price": 12,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Practice Spanish speaking with a native speaker. Focus on everyday conversations, vocabulary building, and cultural insights.",
+    "image": "https://i.postimg.cc/pT8Zqx9C/spanish.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Cooking Italian Cuisine",
+    "providerName": "Antonio Rossi",
+    "providerEmail": "antonio@skillswap.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Learn to cook authentic Italian dishes from pasta to risotto. Discover traditional recipes and cooking techniques.",
+    "image": "https://i.postimg.cc/g2wN5Rxx/cooking.jpg",
+    "category": "Culinary"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Piano Fundamentals",
+    "providerName": "Emily Watson",
+    "providerEmail": "emily@skillswap.com",
+    "price": 28,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Learn piano basics including reading sheet music, hand positioning, and playing simple melodies. All ages welcome.",
+    "image": "https://i.postimg.cc/x8wY9Qxz/piano.jpg",
+    "category": "Music"
+  }
+]
