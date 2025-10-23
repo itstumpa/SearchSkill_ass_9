@@ -9,6 +9,8 @@ import Contact from "../components/Footer/Contact.jsx";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy.jsx";
 import SkillDetails from "../Pages/Home/Sections/SkillDetails.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import ForgotPassword from "../components/ForgotPassword.jsx";
+import ResetPassword from "../components/ResetPassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
   element: <PrivateRoute>
               <SkillDetails />
             </PrivateRoute>
+}, 
+{
+path:"/forgot-password" ,
+element:<ForgotPassword />,
+},
+{
+path:"/reset-password" ,
+element:<ResetPassword />,
 }
   
     ],

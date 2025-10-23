@@ -84,7 +84,7 @@ const Register = () => {
   };
 
   return (
-    <div className="mt-22 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+    <div className="my-30 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
       <div className="card-body">
         <h1 className="text-3xl font-bold text-center">Register now!</h1>
         <form onSubmit={handleRegister}>
@@ -124,10 +124,10 @@ const Register = () => {
             </button>
 
             {/* Divider */}
-            <div className="flex items-center justify-center gap-2 my-2">
-              <div className="h-px w-16 bg-white/30"></div>
-              <span className="text-sm text-white/70">or</span>
-              <div className="h-px w-16 bg-white/30"></div>
+            <div className="flex items-center justify-center gap-2 my-3">
+              <div className="h-px w-16 bg-black/30"></div>
+              <span className="text-sm text-black/70">or</span>
+              <div className="h-px w-16 bg-black/30"></div>
             </div>
 
             {/* Google */}

@@ -12,6 +12,10 @@ import { auth } from "../../firebase/firebase.config";
 import { useAuth } from "../../contexts/AuthContext";
 import PrivateRoute from "../../Routes/PrivateRoute";
 import { useEffect } from "react";
+
+
+
+
 const Login = () => {
   const { user } = useAuth(); 
   const [show, setShow] = useState(false);
@@ -62,13 +66,20 @@ const Login = () => {
       .catch((error) => toast.error(error.message));
   };
 
+  const [email, setEmail] = useState("");
+const handleForgotPasswordClick = () => {
+    navigate(`/forgot-password?email=${encodeURIComponent(email)}`);
+  };
+
+  
+
   return (
-    <div className="mt-22 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+    <div className="my-30 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
       <div className="card-body">
         {user ? (
-          // Logged-in UI
+          // Logged in UI
           <div className="text-center space-y-3">
-            <p className="text-green-500 mb-3">Login Successful ✅</p>
+            <p className="text-green-500 mb-3">✅ My Profile Page</p>
             <img
               src={user?.photoURL || "https://via.placeholder.com/88"}
               className="h-20 w-20 rounded-full mx-auto"
@@ -79,6 +90,7 @@ const Login = () => {
             <button onClick={handleLogout} className="btn btn-neutral w-full">
               Logout
             </button>
+            <button className="w-full bg-[#5754E8] text-white p-2 rounded shadow-md font-semibold">Update Profile button</button>
           </div>
         ) : (
           // Login Form
@@ -91,6 +103,8 @@ const Login = () => {
                 type="email"
                 name="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="input input-bordered w-full bg-blue-900/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 placeholder="Email"
               />
@@ -105,25 +119,29 @@ const Login = () => {
               />
               <span
                 onClick={() => setShow(!show)}
-                className="absolute right-[28px] top-[175px] cursor-pointer z-50"
+                className="absolute right-[20px] top-[120px] cursor-pointer z-50"
               >
                 {show ? <Eye /> : <EyeClosed />}
               </span>
 
               <div className="mt-2">
-                <a className="link link-hover text-sm text-gray-400">
-                  Forgot password?
-                </a>
+                <button
+        type="button"
+        onClick={handleForgotPasswordClick}
+        className="link link-hover text-sm text-gray-400"
+      >
+        Forgot password?
+      </button>
               </div>
 
               <button type="submit" className="btn btn-neutral mt-4 w-full">
                 Login
               </button>
-
-              <div className="flex items-center justify-center gap-2 my-4">
-                <div className="h-px w-16 bg-white/30"></div>
-                <span className="text-sm text-white/70">or</span>
-                <div className="h-px w-16 bg-white/30"></div>
+{/* or design  */}
+              <div className="flex items-center justify-center gap-2 my-2">
+                <div className="h-px w-16 bg-black/30"></div>
+                <span className="text-sm text-black/70">or</span>
+                <div className="h-px w-16 bg-black/30"></div>
               </div>
 
               <button
@@ -162,7 +180,7 @@ const Login = () => {
               </button>
             </fieldset>
 
-            <p className="text-center mt-3 text-white/80">
+            <p className="text-center mt-3 text-black/80">
               New to our website?{" "}
               <Link className="text-blue-400 hover:underline" to="/register">
                 Register
