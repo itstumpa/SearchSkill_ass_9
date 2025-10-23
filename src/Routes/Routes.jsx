@@ -8,6 +8,7 @@ import About from "../components/Footer/about.jsx"
 import Contact from "../components/Footer/Contact.jsx";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy.jsx";
 import SkillDetails from "../Pages/Home/Sections/SkillDetails.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,9 +43,15 @@ const router = createBrowserRouter([
     path: "/privacy",
     element: <PrivacyPolicy />,
   },
+//   {
+//   path: "/skill-details/:id",
+//   element: <SkillDetails />,
+// },
   {
   path: "/skill-details/:id",
-  element: <SkillDetails />,
+  element: <PrivateRoute>
+              <SkillDetails />
+            </PrivateRoute>
 }
   
     ],

@@ -10,7 +10,7 @@ const error = useRouteError()
   return (
     <>
                   {/* <Home/> */}
-                  <title>Error-404</title>
+                  <title className='mt-20'>Error-404</title>
                   <Navbar />
                   <div className='text-center text-7xl'>Error</div>
                   <div>{error.message}</div>

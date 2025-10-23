@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
-import { Star } from 'lucide-react';
-import skills from '../../../../public/skills.json';
-import { useNavigate } from 'react-router';
+import React, { useState } from "react";
+import { Star } from "lucide-react";
+import skills from "../../../../public/skills.json";
+import { useNavigate } from "react-router";
 
 const PopularSkills = () => {
   const [showAll, setShowAll] = useState(false);
   const navigate = useNavigate();
 
-  const handleClick = (id) => {
-    console.log(`Clicked skill with ID: ${id}`);
+  const goToDetails = (id) => {
+    navigate(`/skill-details/${id}`);
   };
 
   const visibleSkills = showAll ? skills : skills.slice(0, 8);
-
-    const goToDetails = (id) => {
-    navigate(`/skill-details/${id}`);
-  };
 
   return (
     <div className="px-4 sm:px-6">
@@ -23,7 +19,7 @@ const PopularSkills = () => {
         {visibleSkills.map((skill) => (
           <div
             key={skill.skillId}
-            onClick={() => handleClick(skill.skillId)}
+            onClick={() => goToDetails(skill.skillId)}
             className="card bg-white shadow-md hover:shadow-lg hover:scale-105 transition ease-in-out duration-300 rounded-xl overflow-hidden cursor-pointer flex flex-col h-full"
           >
             <figure className="p-3 rounded-md">
@@ -49,8 +45,14 @@ const PopularSkills = () => {
                   <Star className="w-4 h-4" />
                   {skill.rating}
                 </span>
-                <button  onClick={() => goToDetails(skill.skillId)}
-                 className="flex items-center gap-1 bg-[#5754E8] p-2 rounded-md text-white font-semibold hover:bg-[#403eea] transition">
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToDetails(skill.skillId);
+                  }}
+                  className="flex items-center gap-1 bg-[#5754E8] p-2 rounded-md text-white font-semibold hover:bg-[#403eea] transition"
+                >
                   View Details
                 </button>
               </div>
@@ -66,7 +68,7 @@ const PopularSkills = () => {
             onClick={() => setShowAll(!showAll)}
             className="px-6 py-2 bg-[#5754E8] text-white rounded-md font-semibold hover:bg-[#3e3cbc] transition text-sm sm:text-base"
           >
-            {showAll ? 'View Less' : 'View More'}
+            {showAll ? "View Less" : "View More"}
           </button>
         </div>
       )}
