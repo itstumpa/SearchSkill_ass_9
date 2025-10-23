@@ -7,7 +7,8 @@ The platform focuses on skill exchange, personalized learning, and career growth
 
 🔗 Live URL
 
-[Add your live site URL here]
+[https://searchskills.netlify.app/]
+
 
 🛠 Key Features
 
