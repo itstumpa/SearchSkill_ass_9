@@ -22,7 +22,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  const from = location.state?.from?.pathname || "/login";
+  const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -119,7 +119,7 @@ const handleForgotPasswordClick = () => {
               />
               <span
                 onClick={() => setShow(!show)}
-                className="absolute right-[20px] top-[120px] cursor-pointer z-50"
+                className="absolute right-5 top-[120px] cursor-pointer z-50"
               >
                 {show ? <Eye /> : <EyeClosed />}
               </span>

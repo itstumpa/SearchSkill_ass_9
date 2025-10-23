@@ -11,6 +11,7 @@ import SkillDetails from "../Pages/Home/Sections/SkillDetails.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import ForgotPassword from "../components/ForgotPassword.jsx";
 import ResetPassword from "../components/ResetPassword.jsx";
+import MyProfile from "../Pages/MyProfile/MyProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,15 +32,20 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
+    path: "/myprofile",
+    element: <PrivateRoute>
+
+      <MyProfile />
+    </PrivateRoute>
+  },
+  {
     path: "/about",
     element: <About />,
   },
   {
     path: "/contact",
     element: <Navigate to="/register" replace/>,
-    // path: "/category/:id",
-    // element: <CategoryNews />,
-    // loader: () => fetch("/news.json"),
+   
   },
   {
     path: "/privacy",
