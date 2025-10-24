@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+   updateProfile,
 } from "firebase/auth";
 import { Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
@@ -12,8 +13,7 @@ import { auth } from "../../firebase/firebase.config";
 const googleProvider = new GoogleAuthProvider();
 
 const Register = () => {
-  // const [error, setError] = useState("");
-  // const [success, setSuccess] = useState("false");
+  const [photoURL, setPhotoURL] = useState("");
   const [show, setshow] = useState(false);
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -33,6 +33,7 @@ const Register = () => {
   };
   const handleRegister = (event) => {
     event.preventDefault();
+    const name = event.target.Name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     console.log("register click", { email, password });
@@ -49,13 +50,23 @@ const Register = () => {
     // setSuccess(false);
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        console.log("after creation of a new user", res.user);
-        toast.success("Successfully Registered!");
-        navigate("/"); // ✅ Redirect to home page
-        // setSuccess(true);
-        // event.target.reset();
-      })
+      .then(async (res) => {
+      const user = res.user; // ✅ correct user reference
+      console.log("User created:", user);
+
+      try {
+        await updateProfile(user, {
+          displayName: name,
+          photoURL: photoURL,
+        });
+        toast.success("Profile updated successfully!");
+      } catch (err) {
+        console.error("Profile update failed:", err);
+        toast.error("User created but profile not updated");
+      }
+
+      navigate("/"); // redirect after everything is done
+    })
       .catch((e) => {
         console.log(e);
         console.log(e.code);
@@ -103,6 +114,9 @@ const Register = () => {
               className="input input-bordered w-full bg-blue-900/20 text-white placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
               placeholder="Email"
             />
+            
+
+
             <label className="label">Password</label>
             <input
               type={show ? "text" : "password"}
@@ -116,8 +130,19 @@ const Register = () => {
             >
               {show ? <Eye /> : <EyeClosed />}
             </span>
+            <label htmlFor="photoURL" className="block mb-1 font-medium">
+            Photo URL
+          </label>
+          <input
+            type="text"
+            id="photoURL"
+            className="input input-bordered w-full"
+            value={photoURL}
+            onChange={(e) => setPhotoURL(e.target.value)}
+            placeholder="Enter image URL"
+          />
             <div>
-              <a className="link link-hover">Forgot password?</a>
+              <a className="link link-hover underline text-blue-600">Forgot password?</a>
             </div>
             <button type="submit" className="btn btn-neutral mt-4 ">
               Register
