@@ -300,7 +300,7 @@ const Navbar = () => {
                 <li>
                   <button
                     onClick={handleLogout}
-                    className="text-center flex justify-center p-2 btn-ghost bg-red-500 mt-6 text-white hover:bg-red-700"
+                    className="text-center flex justify-center p-2 btn-ghost bg-black font-semibold mt-6 text-white hover:bg-red-700"
                   >
                     Logout
                   </button>
@@ -354,7 +354,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="btn btn-ghost ml-8 bg-red-700 hover:text-white"
+                  className="btn btn-ghost ml-8 bg-white font-semibold text-black hover:text-violet-600"
                 >
                   Logout
                 </button>
