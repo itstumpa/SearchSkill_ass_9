@@ -3,7 +3,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../firebase/firebase.config";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router";
+import { NavLink, useSearchParams } from "react-router";
 
 
 
@@ -56,6 +56,13 @@ const ForgotPassword = () => {
         <button type="submit" className="btn btn-primary w-full">
           Send Reset Email
         </button>
+
+        <NavLink
+  to="/login"
+  className="text-blue-600 underline flex justify-end text-center p-2"
+>
+  Back to login
+</NavLink>
       </form>
     </div>
   );
