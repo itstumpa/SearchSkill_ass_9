@@ -128,7 +128,7 @@ const handleForgotPasswordClick = () => {
       </button>
               </div>
 
-              <button type="submit" className="btn btn-neutral mt-4 w-full">
+              <button type="submit" className="btn btn-neutral bg-violet-600 mt-4 w-full">
                 Login
               </button>
 {/* or design  */}

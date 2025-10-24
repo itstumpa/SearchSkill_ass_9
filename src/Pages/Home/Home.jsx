@@ -5,6 +5,8 @@ import TopCourseMarquee from "./Sections/TopCourseMarquee";
 import HowitWorks from "./Sections/HowitWorks";
 import Testimonials from "./Sections/Testimonials";
 import Discount from "./Sections/Discount";
+import GroupStudy from "./Sections/GroupStudy";
+import FAQ from "./Sections/FAQ";
 
 
 const Home = () => {
@@ -40,6 +42,14 @@ const Home = () => {
 
       <div className=" bg-linear-to-r from-indigo-50 via-white to-indigo-50" >
         <HowitWorks/>
+      </div>
+
+      <div>
+        <FAQ/>
+      </div>
+
+      <div>
+        <GroupStudy/>
       </div>
       
       

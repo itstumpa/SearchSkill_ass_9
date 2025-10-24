@@ -15,10 +15,10 @@ const Discount = () => {
 				<span className="font-bold text-lg">TUMPA</span>
 			</div>
  <NavLink
-            to="/login"
+            to="/"
             className="px-5 mt-4 lg:mt-0 py-3 rounded-md border block bg-white text-black font-semibold dark:border-gray-600"
           >
-            Shop Now
+            Buy Now
           </NavLink>		
           </div>
 	</div>

@@ -161,7 +161,7 @@ const Register = () => {
             placeholder="Enter image URL"
           />
            
-            <button type="submit" className="btn btn-neutral mt-8 ">
+            <button type="submit" className="btn btn-neutral bg-violet-600 mt-8 ">
               Register
             </button>
 
