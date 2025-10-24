@@ -1,22 +1,40 @@
-import React, { useEffect, useState } from "react";
-import "animate.css";
+import React, { useEffect, useState, useRef } from "react";
 import FAQs from "../../../assets/FAQ.png";
 import faqData from "../../../../public/faq.json";
 
 const FAQ = () => {
   const [animate, setAnimate] = useState(false);
+  const faqRef = useRef(null);
 
   useEffect(() => {
-    setAnimate(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setAnimate(true); 
+        } else {
+          setAnimate(false); 
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (faqRef.current) observer.observe(faqRef.current);
+
+    return () => {
+      if (faqRef.current) observer.unobserve(faqRef.current);
+    };
   }, []);
 
   return (
-    <div className="parent flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-50 max-w-6xl mx-auto px-4 my-16">
-      
+    <div
+      ref={faqRef}
+      className="parent flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-50 max-w-6xl mx-auto px-4 my-16"
+    >
       {/* Image Section */}
       <div className="hidden sm:flex justify-center lg:justify-end w-full lg:w-1/2">
         <img
-          className="w-[300px] h-[300px]  lg:w-[450px] lg:h-[450px] object-contain"
+          className="w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] object-contain"
           src={FAQs}
           alt=""
         />
@@ -34,7 +52,7 @@ const FAQ = () => {
 
               {/* Animated Question */}
               <div
-                style={{ animationDuration: "1.2s" }}
+                style={{ animationDuration: "1.5s" }}
                 className={`collapse-title bg-black/90 text-primary-content font-medium peer-checked:bg-violet-600 peer-checked:text-secondary-content ${
                   animate ? "animate__animated animate__lightSpeedInRight" : ""
                 }`}
