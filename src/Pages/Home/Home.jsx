@@ -4,7 +4,7 @@ import PopularSkills from "./Sections/PopularSkills";
 import TopCourseMarquee from "./Sections/TopCourseMarquee";
 import HowitWorks from "./Sections/HowitWorks";
 import Testimonials from "./Sections/Testimonials";
-// import SkillDetails from "./Sections/SkillDetails";
+import Discount from "./Sections/Discount";
 
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
     <div className="home-page">
       <HeroSection />
 
-      <div className="bg-gradient-to-r from-indigo-50 via-white to-indigo-50">
+      <div className="bg-linear-to-r from-indigo-50 via-white to-indigo-50">
       <div className="max-w-10/12 mx-auto pt-20 px-8">
 
 <h2 className="text-center text-2xl md:3xl lg:text-5xl text-[#2f2f2f] mb-4 font-bold">
@@ -24,6 +24,10 @@ const Home = () => {
       
       </div>
 
+      <div>
+        <Discount/>
+      </div>
+
       <div className="">
 
         <TopCourseMarquee/>
@@ -32,9 +36,12 @@ const Home = () => {
         <Testimonials/>
       </div>
 
-      <div className=" bg-gradient-to-r from-indigo-50 via-white to-indigo-50" >
+      
+
+      <div className=" bg-linear-to-r from-indigo-50 via-white to-indigo-50" >
         <HowitWorks/>
       </div>
+      
       
     </div>
   );

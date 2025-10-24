@@ -5,7 +5,6 @@ import Error from "../Pages/Error";
 import MainLayouts from "../components/Layout/MainLayouts";
 import Register from "../Pages/Register/Register.jsx";
 import About from "../components/Footer/about.jsx"
-import Contact from "../components/Footer/Contact.jsx";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy.jsx";
 import SkillDetails from "../Pages/Home/Sections/SkillDetails.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
@@ -43,18 +42,9 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: "/contact",
-    element: <Navigate to="/register" replace/>,
-   
-  },
-  {
     path: "/privacy",
     element: <PrivacyPolicy />,
   },
-//   {
-//   path: "/skill-details/:id",
-//   element: <SkillDetails />,
-// },
   {
   path: "/skill-details/:id",
   element: <PrivateRoute>

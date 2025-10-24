@@ -7,7 +7,7 @@ import topfakedata from "../../../../public/topfakedata.json";
 
 const TopCourseMarquee = () => {
   return (
-    <div className="py-1 md:py-10 bg-linear-to-r from-indigo-50 via-white to-indigo-50">
+    <div className="pt-10 pb-3 md:py-10 bg-linear-to-r from-indigo-50 via-white to-indigo-50">
       <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-8 text-[#5754E8]">
       Featured Top Rated Providers
       </h2>

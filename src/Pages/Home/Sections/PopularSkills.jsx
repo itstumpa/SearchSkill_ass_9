@@ -11,10 +11,10 @@ const PopularSkills = () => {
     navigate(`/skill-details/${id}`);
   };
 
-  const visibleSkills = showAll ? skills : skills.slice(0, 8);
+  const visibleSkills = showAll ? skills : skills.slice(0, 4);
 
   return (
-    <div className=" sm:px-3 pb-22">
+    <div className=" sm:px-3 pb-8 md:pb-16">
       <div className="my-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
         {visibleSkills.map((skill) => (
           <div
@@ -63,7 +63,7 @@ const PopularSkills = () => {
 
       {/* View More / View Less Button */}
       {skills.length > 8 && (
-        <div className="text-center mt-6">
+        <div className="text-center mt-4 md:mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
             className="px-6 py-2 bg-[#5754E8] text-white rounded-md font-semibold hover:bg-[#3e3cbc] transition text-sm sm:text-base"

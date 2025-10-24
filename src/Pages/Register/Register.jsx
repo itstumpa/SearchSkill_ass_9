@@ -46,8 +46,7 @@ const Register = () => {
       return;
     }
 
-    // setError("");
-    // setSuccess(false);
+    
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
@@ -145,9 +144,7 @@ const Register = () => {
             onChange={(e) => setPhotoURL(e.target.value)}
             placeholder="Enter image URL"
           />
-            {/* <div>
-              <a className="link link-hover underline text-blue-600">Forgot password?</a>
-            </div> */}
+           
             <button type="submit" className="btn btn-neutral mt-8 ">
               Register
             </button>
@@ -195,10 +192,7 @@ const Register = () => {
               Register with Google
             </button>
           </fieldset>
-          {/* {success && (
-            <p className="text-green-500">Account Created Successfully</p>
-          )} */}
-          {/* {error && <p className="text-red-300">{error}</p>} */}
+          
         </form>
         <p className="text-center">
           Already have an Account? Please{" "}

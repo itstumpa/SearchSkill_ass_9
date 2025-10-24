@@ -2,7 +2,6 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signOut,
 } from "firebase/auth";
 import { Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
@@ -60,11 +59,11 @@ const Login = () => {
   
 
   // Handle logout
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => toast.success("Logged out successfully"))
-      .catch((error) => toast.error(error.message));
-  };
+  // const handleLogout = () => {
+  //   signOut(auth)
+  //     .then(() => toast.success("Logged out successfully"))
+  //     .catch((error) => toast.error(error.message));
+  // };
 
   const [email, setEmail] = useState("");
 const handleForgotPasswordClick = () => {
@@ -76,24 +75,6 @@ const handleForgotPasswordClick = () => {
   return (
     <div className="my-30 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
       <div className="card-body">
-        {user ? (
-          // Logged in UI
-          <div className="text-center space-y-3">
-            <p className="text-green-500 mb-3">✅ My Profile Page</p>
-            <img
-              src={user?.photoURL || "https://via.placeholder.com/88"}
-              className="h-20 w-20 rounded-full mx-auto"
-              alt=""
-            />
-            <h2 className="text-xl font-semibold">{user?.displayName}</h2>
-            <p className="text-gray-600">{user?.email}</p>
-            <button onClick={handleLogout} className="btn btn-neutral w-full">
-              Logout
-            </button>
-            <button className="w-full bg-[#5754E8] text-white p-2 rounded shadow-md font-semibold">Update Profile button</button>
-          </div>
-        ) : (
-          // Login Form
           <form onSubmit={handleLogin}>
             <h1 className="text-3xl font-bold text-center mb-4">Login now!</h1>
 
@@ -187,7 +168,6 @@ const handleForgotPasswordClick = () => {
               </Link>
             </p>
           </form>
-        )}
       </div>
     </div>
   );
