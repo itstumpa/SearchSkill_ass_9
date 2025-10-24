@@ -11,7 +11,7 @@ import { auth } from "../../firebase/firebase.config";
 import { useAuth } from "../../contexts/AuthContext";
 import PrivateRoute from "../../Routes/PrivateRoute";
 import { useEffect } from "react";
-
+import Loginpana from "../../assets/Loginpana.png"
 
 
 
@@ -73,8 +73,21 @@ const handleForgotPasswordClick = () => {
   
 
   return (
-    <div className="my-30 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
-      <div className="card-body">
+   <div className="flex flex-col md:flex-row gap-30  items-center justify-center my-30 ">
+  
+  {/* Image Section */}
+  <div className="md:flex justify-center items-center hidden">
+    <img
+      className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"
+      src={Loginpana}
+      alt="Login illustration"
+    />
+  </div>
+
+  {/* Form Section */}
+  <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl md:w-1/2">
+    <div className="card-body">
+      
           <form onSubmit={handleLogin}>
             <h1 className="text-3xl font-bold text-center mb-4">Login now!</h1>
 
@@ -170,6 +183,7 @@ const handleForgotPasswordClick = () => {
           </form>
       </div>
     </div>
+     </div>
   );
 };
 

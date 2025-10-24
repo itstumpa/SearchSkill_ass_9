@@ -9,6 +9,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/firebase.config";
+import Signup from "../../assets/Signup.png"
+
+
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -94,8 +97,21 @@ const Register = () => {
   };
 
   return (
-    <div className="my-30 card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
-      <div className="card-body">
+
+    <div className="flex lg:flex-row gap-42  items-center justify-center my-30 ">
+      
+      {/* Image Section */}
+      <div className="lg:flex justify-center items-center hidden">
+        <img
+          className="w-[200px] h-[150px] lg:w-[400px] md:h-[400px]"
+          src={Signup}
+          alt="Login illustration"
+        />
+      </div>
+    
+      {/* Form Section */}
+      <div className="card bg-base-100 w-full max-w-xs md:max-w-md shrink-0 shadow-2xl md:w-1/2">
+        <div className="card-body">
         <h1 className="text-3xl font-bold text-center">Register now!</h1>
         <form onSubmit={handleRegister}>
           <fieldset className="fieldset relative">
@@ -201,6 +217,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
+    </div>
     </div>
   );
 };

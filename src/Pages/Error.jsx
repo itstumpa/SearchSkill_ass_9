@@ -11,7 +11,7 @@ const error = useRouteError()
     <>
     <Navbar/>
     <div className='flex justify-center mt-20 items-center lg:flex-row  md:flex-col'>
-      <img className='w-[400px] h-[400px] md:flex items-center hidden mt-8' src={img404} alt="" />
+      <img className='md:w-[400px] w-[300px] h-[300px] md:h-[400px] md:flex items-center hidden mt-8' src={img404} alt="" />
                   <section className="flex items-center  h-full p-16  dark:text-gray-800">
 	<div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
 		<div className="max-w-md text-center">
