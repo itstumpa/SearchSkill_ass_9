@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import "animate.css";
 import FAQs from "../../../assets/FAQ.png";
 import faqData from "../../../../public/faq.json";
 
@@ -6,21 +7,20 @@ const FAQ = () => {
   const [animate, setAnimate] = useState(false);
   const faqRef = useRef(null);
 
+  // Trigger animation only when section is visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
         if (entry.isIntersecting) {
-          setAnimate(true); 
-        } else {
-          setAnimate(false); 
+          setAnimate(true);
+          observer.disconnect(); // Trigger only once
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 } // 30% of the section visible
     );
 
     if (faqRef.current) observer.observe(faqRef.current);
-
     return () => {
       if (faqRef.current) observer.unobserve(faqRef.current);
     };
@@ -52,7 +52,7 @@ const FAQ = () => {
 
               {/* Animated Question */}
               <div
-                style={{ animationDuration: "1.5s" }}
+                style={{ animationDuration: "1.2s" }}
                 className={`collapse-title bg-black/90 text-primary-content font-medium peer-checked:bg-violet-600 peer-checked:text-secondary-content ${
                   animate ? "animate__animated animate__lightSpeedInRight" : ""
                 }`}
