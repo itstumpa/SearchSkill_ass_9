@@ -14,7 +14,7 @@ const PopularSkills = () => {
   const visibleSkills = showAll ? skills : skills.slice(0, 8);
 
   return (
-    <div className="px-4 sm:px-6 pb-30">
+    <div className=" sm:px-3 pb-22">
       <div className="my-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
         {visibleSkills.map((skill) => (
           <div

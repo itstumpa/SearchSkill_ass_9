@@ -151,8 +151,8 @@ const handleForgotPasswordClick = () => {
               >
                 <svg
                   aria-label="Google logo"
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
                 >
@@ -182,7 +182,7 @@ const handleForgotPasswordClick = () => {
 
             <p className="text-center mt-3 text-black/80">
               New to our website?{" "}
-              <Link className="text-blue-400 hover:underline" to="/register">
+              <Link className="text-blue-400 hover:underline font-semibold underline" to="/register">
                 Register
               </Link>
             </p>

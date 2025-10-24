@@ -51,7 +51,7 @@ const Register = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
-      const user = res.user; // ✅ correct user reference
+      const user = res.user; 
       console.log("User created:", user);
 
       try {
@@ -65,7 +65,7 @@ const Register = () => {
         toast.error("User created but profile not updated");
       }
 
-      navigate("/"); // redirect after everything is done
+      navigate("/"); 
     })
       .catch((e) => {
         console.log(e);
@@ -104,14 +104,16 @@ const Register = () => {
             <input
               type={"text"}
               name="Name"
-              className="input input-bordered w-full bg-blue-900/20 text-white placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
+               required
+              className="input input-bordered w-full bg-blue-900/20 text-black placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
               placeholder="Name"
             />
             <label className="label">Email</label>
             <input
               type="email"
               name="email"
-              className="input input-bordered w-full bg-blue-900/20 text-white placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
+               required
+              className="input input-bordered w-full bg-blue-900/20 text-black placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
               placeholder="Email"
             />
             
@@ -121,12 +123,13 @@ const Register = () => {
             <input
               type={show ? "text" : "password"}
               name="password"
-              className="input input-bordered w-full bg-blue-900/20 text-white placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Password"
+              required
+              className="input input-bordered w-full bg-blue-900/20 text-black placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
+              placeholder="********"
             />
             <span
               onClick={() => setshow(!show)}
-              className="absolute right-[28px] top-[175px] cursor-pointer z-50"
+              className="absolute right-7 top-[175px] cursor-pointer z-50"
             >
               {show ? <Eye /> : <EyeClosed />}
             </span>
@@ -136,15 +139,16 @@ const Register = () => {
           <input
             type="text"
             id="photoURL"
-            className="input input-bordered w-full"
+             required
+            className="input input-bordered w-full bg-blue-900/20 text-black placeholder:white/60 focus:outine-none focus:ring-2 focus:ring-blue-400"
             value={photoURL}
             onChange={(e) => setPhotoURL(e.target.value)}
             placeholder="Enter image URL"
           />
-            <div>
+            {/* <div>
               <a className="link link-hover underline text-blue-600">Forgot password?</a>
-            </div>
-            <button type="submit" className="btn btn-neutral mt-4 ">
+            </div> */}
+            <button type="submit" className="btn btn-neutral mt-8 ">
               Register
             </button>
 
@@ -163,8 +167,8 @@ const Register = () => {
             >
               <svg
                 aria-label="Google logo"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
               >
@@ -188,7 +192,7 @@ const Register = () => {
                   ></path>
                 </g>
               </svg>
-              Login with Google
+              Register with Google
             </button>
           </fieldset>
           {/* {success && (
@@ -198,7 +202,7 @@ const Register = () => {
         </form>
         <p className="text-center">
           Already have an Account? Please{" "}
-          <Link className="text-blue-500 hover:text-blue-800" to="/login">
+          <Link className="text-blue-500 hover:text-blue-800 underline font-semibold" to="/login">
             Login
           </Link>
         </p>

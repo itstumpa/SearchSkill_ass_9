@@ -1,12 +1,14 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
-import topfakedata from "../../../../public/topfakedata.json"; // adjust path if needed
+import topfakedata from "../../../../public/topfakedata.json"; 
+
+
 
 const TopCourseMarquee = () => {
   return (
-    <div className="py-10 bg-gradient-to-r from-indigo-50 via-white to-indigo-50">
-      <h2 className="text-4xl font-bold text-center mb-8 text-[#5754E8]">
+    <div className="py-1 md:py-10 bg-linear-to-r from-indigo-50 via-white to-indigo-50">
+      <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-8 text-[#5754E8]">
       Featured Top Rated Providers
       </h2>
 
@@ -15,7 +17,7 @@ const TopCourseMarquee = () => {
           {topfakedata.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-gray-200 shadow-md rounded-xl p-4 min-w-[250px] max-w-[250px] flex-shrink-0 hover:shadow-lg transition transform hover:-translate-y-1"
+              className="bg-white border border-gray-200 shadow-md rounded-xl p-4 min-w-[250px] max-w-[250px] shrink-0 hover:shadow-lg transition transform hover:-translate-y-1"
             >
               <div className="flex items-center gap-3 mb-3">
                 <img

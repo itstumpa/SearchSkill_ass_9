@@ -41,7 +41,7 @@ const ForgotPassword = () => {
 
 
   return (
-    <div className="card w-full max-w-sm mx-auto mt-34 shadow-lg p-6">
+    <div className="mb-10 card w-full max-w-sm mx-auto mt-34 shadow-lg p-6">
       <h2 className="text-2xl font-bold mb-4 text-center">Reset Password</h2>
       <form onSubmit={handleForgotPassword}>
         <label className="label">Email Address</label>
