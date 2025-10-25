@@ -43,3 +43,12 @@ lucide-react
 
 tailwindcss
  – Utility-first CSS framework for responsive design
+
+ AOS
+ - For smooth animation
+
+ Animate.css
+ - For animation
+
+ Swiper.js
+ - slide animation
