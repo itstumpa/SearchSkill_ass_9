@@ -28,13 +28,13 @@ const Register = () => {
   
   const from = location.state?.from?.pathname || "/";
 
-// fixme
+
   useEffect(() => {
     if (user) {
       navigate("/", { replace: true });
     }
   }, [user, navigate]);
-// ----------------------------------------------------------
+
 
   const handleGoogleSignin = () => {
   signInWithPopup(auth, googleProvider)
