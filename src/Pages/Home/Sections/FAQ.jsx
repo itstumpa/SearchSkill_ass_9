@@ -14,7 +14,7 @@ const FAQ = () => {
         const [entry] = entries;
         if (entry.isIntersecting) {
           setAnimate(true);
-          observer.disconnect(); // Trigger only once
+          observer.disconnect();
         }
       },
       { threshold: 0.3 } // 30% of the section visible
@@ -54,7 +54,7 @@ const FAQ = () => {
               <div
                 style={{ animationDuration: "1.2s" }}
                 className={`collapse-title bg-black/90 text-primary-content font-medium peer-checked:bg-violet-600 peer-checked:text-secondary-content ${
-                  animate ? "animate__animated animate__lightSpeedInRight" : ""
+                  animate ? "animate__animated animate__slideInDown animate__bounce" : ""
                 }`}
               >
                 {faq.question}

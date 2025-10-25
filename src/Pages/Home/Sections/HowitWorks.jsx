@@ -19,7 +19,7 @@ const HowitWorks = () => {
 
   return (
     <section className="max-w-10/12 mx-auto py-16 px-4 md:px-8 text-center">
-      <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-6">
+      <h2 data-aos="fade-up" data-aos-delay="200" className="text-2xl md:text-4xl font-bold text-gray-800 mb-6">
         How It Works
       </h2>
 

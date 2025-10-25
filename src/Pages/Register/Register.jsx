@@ -6,11 +6,11 @@ import {
 } from "firebase/auth";
 import { Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/firebase.config";
 import Signup from "../../assets/Signup.png"
-
+import { useAuth } from "../../contexts/AuthContext";
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -19,7 +19,13 @@ const Register = () => {
   const [photoURL, setPhotoURL] = useState("");
   const [show, setshow] = useState(false);
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+
+
+  const location = useLocation();
+  
+  const from = location.state?.from?.pathname || "/";
+
 
   const handleGoogleSignin = () => {
     console.log("google signin");
@@ -28,17 +34,21 @@ const Register = () => {
         console.log(res);
         setUser(res.user);
         toast.success("Signin successful");
+        navigate(from, { replace: true });
       })
       .catch((e) => {
         console.log(e);
         toast.error(e.message);
       });
   };
+
+
   const handleRegister = (event) => {
     event.preventDefault();
     const name = event.target.Name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
+    
     console.log("register click", { email, password });
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -161,7 +171,7 @@ const Register = () => {
             placeholder="Enter image URL"
           />
            
-            <button type="submit" className="btn btn-neutral bg-violet-600 mt-8 ">
+            <button type="submit" className="btn btn-neutral bg-violet-600 border-violet-700 mt-8 ">
               Register
             </button>
 

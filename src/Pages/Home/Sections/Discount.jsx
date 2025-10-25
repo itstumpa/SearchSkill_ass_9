@@ -14,7 +14,7 @@ const Discount = () => {
 				<span>Plus Buy One Get One! Use code:</span>
 				<span className="font-bold text-lg">TUMPA</span>
 			</div>
- <NavLink
+ <NavLink data-aos="fade-left" 
             to="/"
             className="px-5 mt-4 lg:mt-0 py-3 rounded-md border block bg-white text-black font-semibold dark:border-gray-600"
           >

@@ -10,6 +10,7 @@ import laptop from '../../../assets/laptop.jpg';
 import student from '../../../assets/student.jpg';
 
 const HeroSection = () => {
+  
   return (
     <div className="relative">
       <Swiper
@@ -20,8 +21,8 @@ const HeroSection = () => {
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}
-        navigation={true}
-        className="relative h-[70vh]" // Changed from h-screen
+        navigation={false}
+        className="relative h-[70vh]" 
       >
         {/* Slide 1 */}
         <SwiperSlide>

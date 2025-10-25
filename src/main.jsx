@@ -5,7 +5,12 @@ import './index.css';
 // import {  } from "react-router/dom";
 import router from './Routes/Routes.jsx';
 import { ToastContainer } from 'react-toastify';
+
 import { AuthProvider } from "./contexts/AuthContext.jsx";
+
+
+
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
