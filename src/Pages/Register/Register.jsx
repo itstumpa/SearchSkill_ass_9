@@ -2,10 +2,11 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+   getAdditionalUserInfo,
    updateProfile,
 } from "firebase/auth";
 import { Eye, EyeClosed } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router";
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/firebase.config";
@@ -20,27 +21,48 @@ const Register = () => {
   const [show, setshow] = useState(false);
   const navigate = useNavigate();
   // const [user, setUser] = useState(null);
+ const { user, loading } = useAuth();
 
 
   const location = useLocation();
   
   const from = location.state?.from?.pathname || "/";
 
+// fixme
+  useEffect(() => {
+    if (user) {
+      navigate("/", { replace: true });
+    }
+  }, [user, navigate]);
+// ----------------------------------------------------------
 
   const handleGoogleSignin = () => {
-    console.log("google signin");
-    signInWithPopup(auth, googleProvider)
-      .then((res) => {
-        console.log(res);
-        setUser(res.user);
-        toast.success("Signin successful");
-        navigate(from, { replace: true });
-      })
-      .catch((e) => {
-        console.log(e);
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+    
+      const additionalUserInfo = getAdditionalUserInfo(result);
+      
+      if (additionalUserInfo?.isNewUser) {
+       
+        toast.success("Registration successful! Welcome!");
+      } else {
+      
+        toast.info("This email is already registered. You've been logged in!");
+      }
+      
+      navigate(from, { replace: true });
+    })
+    .catch((e) => {
+      console.log(e);
+      if (e.code === "auth/popup-closed-by-user") {
+        toast.info("Sign-in cancelled.");
+      } else if (e.code === "auth/account-exists-with-different-credential") {
+        toast.error("An account already exists with this email using a different sign-in method.");
+      } else {
         toast.error(e.message);
-      });
-  };
+      }
+    });
+};
 
 
   const handleRegister = (event) => {
@@ -49,7 +71,6 @@ const Register = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     
-    console.log("register click", { email, password });
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
     if (!passwordRegex.test(password)) {
@@ -83,7 +104,7 @@ const Register = () => {
         console.log(e);
         console.log(e.code);
         if (e.code === "auth/email-already-in-use") {
-          toast.error("User already exists in the database.");
+          toast.error("This email is already registered. Please login instead.");
         } else if (e.code === "auth/weak-password") {
           toast.error("At least 8 digit er pass dite hobe");
         } else if (e.code === "auth/invalid-email") {
@@ -105,6 +126,14 @@ const Register = () => {
         }
       });
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  } 
 
   return (
 

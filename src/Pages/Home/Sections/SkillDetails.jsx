@@ -78,8 +78,8 @@ const SkillDetails = () => {
 
     {/* Popup Modal */}
     {showForm && (
-      <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/10 z-50">
-        <div className="bg-white shadow-lg p-6 rounded-lg max-w-md w-full relative animate__animated animate__fadeInDown">
+      <div className="fixed inset-0 flex items-center px-10 justify-center backdrop-blur-sm bg-black/10 z-50">
+        <div className="bg-white shadow-lg p-6  rounded-lg max-w-md w-full relative animate__animated animate__fadeInDown">
           {/* Close Button */}
           <button
             onClick={() => setShowForm(false)}

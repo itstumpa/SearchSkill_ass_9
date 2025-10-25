@@ -4,26 +4,30 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { Eye, EyeClosed } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { auth } from "../../firebase/firebase.config";
 import { useAuth } from "../../contexts/AuthContext";
-import PrivateRoute from "../../Routes/PrivateRoute";
-import { useEffect } from "react";
 import Loginpana from "../../assets/Loginpana.png"
 
 
+const googleProvider = new GoogleAuthProvider();
 
 const Login = () => {
-  const { user } = useAuth(); 
+  const { user, loading } = useAuth(); 
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   
   const from = location.state?.from?.pathname || "/";
 
-  const googleProvider = new GoogleAuthProvider();
+ useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
+
 
   //  Handle email/password login
   const handleLogin = (e) => {
@@ -37,9 +41,24 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
+        if (error.code === "auth/invalid-credential") {
+        toast.error("Wrong email or password. Please try again.");
+      } else if (error.code === "auth/user-not-found") {
+        toast.error("No account found with this email.");
+      } else if (error.code === "auth/wrong-password") {
+        // Legacy support
+        toast.error("Wrong password. Please try again.");
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email format.");
+      } else if (error.code === "auth/user-disabled") {
+        toast.error("This account has been disabled.");
+      } else if (error.code === "auth/too-many-requests") {
+        toast.error("Too many failed attempts. Please try again later.");
+      } else {
         toast.error(error.message);
-      });
-  };
+      }
+    });
+};
 
   // Handle Google login
   const handleGoogleSignin = () => {
@@ -48,35 +67,37 @@ const Login = () => {
         toast.success("Google sign-in successful!");
         navigate(from, { replace: true }); 
       })
-      .catch((e) => toast.error(e.message));
-  };
+      .catch((e) => {
+         if (e.code === "auth/popup-closed-by-user") {
+          toast.info("Sign-in cancelled.");
+        } else if (e.code === "auth/popup-blocked") {
+          toast.error("Popup blocked. Please allow popups for this site.");
+        } else {
+          toast.error(e.message);
+        }
+  });
+}
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-    }
-  }, [user, from, navigate]);
   
-
-  // Handle logout
-  // const handleLogout = () => {
-  //   signOut(auth)
-  //     .then(() => toast.success("Logged out successfully"))
-  //     .catch((error) => toast.error(error.message));
-  // };
 
   const [email, setEmail] = useState("");
 const handleForgotPasswordClick = () => {
     navigate(`/forgot-password?email=${encodeURIComponent(email)}`);
   };
 
-  
+ if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  } 
 
   return (
-   <div className="flex flex-col md:flex-row gap-30  items-center justify-center my-30 ">
+   <div className="flex bg-base-100 lg:shadow-xl max-w-[1100px]  mx-auto flex-col lg:flex-row gap-30  items-center justify-center my-20 md:my-40 ">
   
   {/* Image Section */}
-  <div className="md:flex justify-center items-center hidden">
+  <div className="lg:flex justify-center items-center hidden">
     <img
       className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"
       src={Loginpana}
@@ -85,7 +106,7 @@ const handleForgotPasswordClick = () => {
   </div>
 
   {/* Form Section */}
-  <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl md:w-1/2">
+  <div className="card shadow-md my-10 w-full max-w-sm shrink-0  md:w-1/2">
     <div className="card-body">
       
           <form onSubmit={handleLogin}>

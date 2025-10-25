@@ -1,42 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { toast } from 'react-toastify';
+import { useAuth } from '../../contexts/AuthContext'; 
+import { auth } from '../../firebase/firebase.config';
 
-const auth = getAuth();
 
 const MyProfile = () => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  
+    const { user, loading } = useAuth(); 
 
   // Form states
   const [displayName, setDisplayName] = useState('');
   const [photoURL, setPhotoURL] = useState('');
   const [updating, setUpdating] = useState(false);
-  const [error, setError] = useState('');
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        setDisplayName(currentUser.displayName || '');
-        setPhotoURL(currentUser.photoURL || '');
-      } else {
-        setUser(null);
-      }
-      setLoading(false);
-    });
+   useEffect(() => {
+    if (user) {
+      setDisplayName(user.displayName || '');
+      setPhotoURL(user.photoURL || '');
+    }
+  }, [user]);
 
-    return () => unsubscribe();
-  }, []);
+    if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
 
-  if (loading) return <div className="p-4">Loading user data...</div>;
+  if (!user) {
+    return (
+      <div className="max-w-md mx-auto mt-30 p-6 bg-white rounded-md shadow-md">
+        <p className="text-center text-gray-600">No user logged in.</p>
+      </div>
+    );
+  }
 
-  if (!user) return <div className="p-4">No user logged in.</div>;
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     setUpdating(true);
-    setError('');
 
     try {
       await updateProfile(auth.currentUser, {
@@ -44,28 +48,38 @@ const MyProfile = () => {
         photoURL,
       });
 
-      setUser({ ...user, displayName, photoURL });
       toast.success('Profile updated successfully!');
+        await auth.currentUser.reload();
     } catch (err) {
-      setError(err.message);
+    console.error("Profile update error:", err);
+      toast.error(err.message || "Failed to update profile");
     } finally {
       setUpdating(false);
     }
   };
 
-  return (
+
+   return (
     <div className="max-w-md mx-auto mt-30 my-10 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-6">My Profile</h2>
 
       <div className="flex items-center space-x-4 mb-6">
         <img
-          src={photoURL || "/default-avatar.png"}
+          src={photoURL || user.photoURL || "/default-avatar.png"}
           alt="User Avatar"
           className="w-24 h-24 rounded-full object-cover"
+          onError={(e) => {
+            e.target.src = "/default-avatar.png";
+          }}
         />
         <div>
-          <p className="text-lg font-medium">{displayName || "No Name"}</p>
-          <p className="text-gray-600">{user.email}</p>
+          <p className="text-lg font-medium">
+            {displayName || user.displayName || "No Name"}
+          </p>
+          <p className="text-gray-600">{user?.email || user?.providerData?.[0]?.email || "No email"}</p>
+          <p className="text-xs text-gray-400 mt-1">
+            Provider: {user.providerData[0]?.providerId || "unknown"}
+          </p>
         </div>
       </div>
 
@@ -98,8 +112,6 @@ const MyProfile = () => {
           />
         </div>
 
-        {error && <p className="text-red-500">{error}</p>}
-
         <button
           type="submit"
           className={`btn btn-primary w-full ${updating ? 'loading' : ''}`}
@@ -108,6 +120,8 @@ const MyProfile = () => {
           {updating ? 'Updating...' : 'Update Profile'}
         </button>
       </form>
+
+     
     </div>
   );
 };
