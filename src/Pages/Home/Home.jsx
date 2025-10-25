@@ -48,6 +48,7 @@ const Home = () => {
       </div>
 
       <div>
+        <h1 className="text-2xl lg:mt-20 underline mt-10 text-center font-bold text-black/90 lg:text-4xl">Frequently Ask Question</h1>
         <FAQ/>
       </div>
 

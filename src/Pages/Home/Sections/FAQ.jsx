@@ -29,7 +29,7 @@ const FAQ = () => {
   return (
     <div
       ref={faqRef}
-      className="parent flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-50 max-w-6xl mx-auto px-4 my-16"
+      className="parent flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-50 max-w-6xl mx-auto px-4 my-1 lg:my-16"
     >
       {/* Image Section */}
       <div className="hidden sm:flex justify-center lg:justify-end w-full lg:w-1/2">

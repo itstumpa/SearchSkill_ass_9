@@ -60,7 +60,7 @@ const MyProfile = () => {
 
 
    return (
-    <div className="max-w-md mx-auto md:mt-32 sm:mt-28 my-6 sm:my-10 p-4 sm:p-6 bg-white rounded-md shadow-md">
+    <div className="max-w-md mx-auto md:mt-32 mt-28 my-6 sm:my-10 p-4 sm:p-6 bg-white rounded-md shadow-md">
     <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">My Profile</h2>
 
     <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
