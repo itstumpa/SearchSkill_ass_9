@@ -60,69 +60,69 @@ const MyProfile = () => {
 
 
    return (
-    <div className="max-w-md mx-auto mt-30 my-10 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-6">My Profile</h2>
+    <div className="max-w-md mx-auto mt-10 sm:mt-20 my-6 sm:my-10 p-4 sm:p-6 bg-white rounded-md shadow-md">
+    <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">My Profile</h2>
 
-      <div className="flex items-center space-x-4 mb-6">
-        <img
-          src={photoURL || user.photoURL || "/default-avatar.png"}
-          alt="User Avatar"
-          className="w-24 h-24 rounded-full object-cover"
-          onError={(e) => {
-            e.target.src = "/default-avatar.png";
-          }}
+    <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+      <img
+        src={photoURL || user.photoURL || "/default-avatar.png"}
+        alt="User Avatar"
+        className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover flex-shrink-0"
+        onError={(e) => {
+          e.target.src = "/default-avatar.png";
+        }}
+      />
+      <div className="text-center sm:text-left w-full">
+        <p className="text-base sm:text-lg font-medium break-words">
+          {displayName || user.displayName || "No Name"}
+        </p>
+        <p className="text-sm sm:text-base text-gray-600 break-words mt-1">
+          {user?.email || user?.providerData?.[0]?.email || "No email"}
+        </p>
+        <p className="text-xs text-gray-400 mt-1">
+          Provider: {user.providerData[0]?.providerId || "unknown"}
+        </p>
+      </div>
+    </div>
+
+    <form onSubmit={handleUpdateProfile} className="space-y-4">
+      <div>
+        <label htmlFor="displayName" className="block mb-1 font-medium text-sm sm:text-base">
+          Display Name
+        </label>
+        <input
+          type="text"
+          id="displayName"
+          className="input input-bordered w-full text-sm sm:text-base"
+          value={displayName}
+          onChange={(e) => setDisplayName(e.target.value)}
+          placeholder="Enter your display name"
         />
-        <div>
-          <p className="text-lg font-medium">
-            {displayName || user.displayName || "No Name"}
-          </p>
-          <p className="text-gray-600">{user?.email || user?.providerData?.[0]?.email || "No email"}</p>
-          <p className="text-xs text-gray-400 mt-1">
-            Provider: {user.providerData[0]?.providerId || "unknown"}
-          </p>
-        </div>
       </div>
 
-      <form onSubmit={handleUpdateProfile} className="space-y-4">
-        <div>
-          <label htmlFor="displayName" className="block mb-1 font-medium">
-            Display Name
-          </label>
-          <input
-            type="text"
-            id="displayName"
-            className="input input-bordered w-full"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            placeholder="Enter your display name"
-          />
-        </div>
+      <div>
+        <label htmlFor="photoURL" className="block mb-1 font-medium text-sm sm:text-base">
+          Photo URL
+        </label>
+        <input
+          type="text"
+          id="photoURL"
+          className="input input-bordered w-full text-sm sm:text-base"
+          value={photoURL}
+          onChange={(e) => setPhotoURL(e.target.value)}
+          placeholder="Enter image URL"
+        />
+      </div>
 
-        <div>
-          <label htmlFor="photoURL" className="block mb-1 font-medium">
-            Photo URL
-          </label>
-          <input
-            type="text"
-            id="photoURL"
-            className="input input-bordered w-full"
-            value={photoURL}
-            onChange={(e) => setPhotoURL(e.target.value)}
-            placeholder="Enter image URL"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className={`btn btn-primary w-full ${updating ? 'loading' : ''}`}
-          disabled={updating}
-        >
-          {updating ? 'Updating...' : 'Update Profile'}
-        </button>
-      </form>
-
-     
-    </div>
+      <button
+        type="submit"
+        className={`btn btn-primary w-full text-sm sm:text-base ${updating ? 'loading' : ''}`}
+        disabled={updating}
+      >
+        {updating ? 'Updating...' : 'Update Profile'}
+      </button>
+    </form>
+  </div>
   );
 };
 
