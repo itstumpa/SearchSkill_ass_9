@@ -52,3 +52,37 @@ tailwindcss
 
  Swiper.js
  - slide animation
+
+
+## ✅ **Note:**  
+
+📥 Run Locally
+
+1️⃣ Clone the project
+git clone your-repo-link
+cd SkillBay
+
+2️⃣ Setup Client
+cd client
+npm install
+npm run dev
+
+
+3️⃣ Setup Server
+cd ../server
+npm install
+nodemon index.js
+
+Server runs on:
+👉 http://localhost:3000
+
+
+⭐ Show Your Support
+
+If you liked this project:
+
+⭐ Star the repo
+🔄 Share it
+🐛 Report bugs
+
+Made with ❤️ by Tumpa
