@@ -109,6 +109,11 @@ const Navbar = () => {
               </>
             ) : (
               <>
+               <li><NavLink to="/all-skills">All Skills</NavLink></li>
+ 
+              <li><NavLink to="/about">About</NavLink></li>
+<li><HashLink smooth to="/#how-it-works">How It Works</HashLink></li>
+<li><HashLink smooth to="/#contact">Contact</HashLink></li>
                 <li><NavLink to="/myprofile">My Profile</NavLink></li>
                 <li>
                   <button
@@ -151,6 +156,11 @@ const Navbar = () => {
             </>
           ) : (
             <>
+             <li><NavLink to="/all-skills">All Skills</NavLink></li>
+ 
+              <li><NavLink to="/about">About</NavLink></li>
+<li><HashLink smooth to="/#how-it-works">How It Works</HashLink></li>
+<li><HashLink smooth to="/#contact">Contact</HashLink></li>
               <li>
                 <NavLink to="/myprofile" className="flex items-center text-center">
                   <div
