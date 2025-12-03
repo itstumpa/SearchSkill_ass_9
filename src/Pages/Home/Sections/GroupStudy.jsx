@@ -43,10 +43,7 @@ const GroupStudy = () => {
           </p>
           <a
             href="/"
-            style={{ animationDuration: "1.2s" }}
-            className={`inline-flex items-center justify-center md:justify-start text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 font-medium rounded-lg text-sm px-5 py-2.5 bg-white text-center ${
-              animate ? "animate__animated animate__shakeX animate__slow" : ""
-            }`}
+            className='inline-flex items-center justify-center md:justify-start text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 font-medium rounded-lg text-sm px-5 py-2.5 bg-white text-center'
           >
             Get started
             <svg

@@ -47,9 +47,9 @@ const router = createBrowserRouter([
   },
   {
   path: "/skill-details/:id",
-  element: <PrivateRoute>
+  element: 
               <SkillDetails />
-            </PrivateRoute>
+           
 }, 
 {
 path:"/forgot-password" ,

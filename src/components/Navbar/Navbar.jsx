@@ -2,8 +2,10 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { HashLink } from 'react-router-hash-link';
+
 import '../../App.css';
 
 const auth = getAuth();
@@ -98,6 +100,9 @@ const Navbar = () => {
             </li>
             {!user ? (
               <>
+              <li><NavLink to="/about">About</NavLink></li>
+<li><HashLink smooth to="/#how-it-works">How It Works</HashLink></li>
+<li><HashLink smooth to="/#contact">Contact</HashLink></li>
                 <li><NavLink to="/register">Register</NavLink></li>
                 <li><NavLink to="/login">Login</NavLink></li>
               </>
@@ -137,6 +142,9 @@ const Navbar = () => {
           </li>
           {!user ? (
             <>
+              <li><NavLink to="/about">About</NavLink></li>
+<li><HashLink smooth to="/#how-it-works">How It Works</HashLink></li>
+<li><HashLink smooth to="/#contact">Contact</HashLink></li>
               <li><NavLink to="/register">Register</NavLink></li>
               <li><NavLink to="/login">Login</NavLink></li>
             </>

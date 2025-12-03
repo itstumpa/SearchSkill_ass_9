@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className="bg-linear-to-r from-indigo-50 via-white to-indigo-50 pt-2 lg:pt-30 text-base-content ">
+    <footer id='contact' className="bg-linear-to-r from-indigo-50 via-white to-indigo-50 pt-2 lg:pt-30 text-base-content ">
       <div className="container mx-auto px-4 py-10 max-w-10/12 ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-6">
           {/* About Section */}

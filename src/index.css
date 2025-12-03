@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.btn-primary {
+    @apply bg-[#5754E8] text-white font-semibold py-6 px-6 rounded-lg hover:bg-[#4341b8] transition duration-300 text-center border-none;
+}

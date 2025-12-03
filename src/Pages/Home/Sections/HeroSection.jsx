@@ -9,6 +9,7 @@ import 'swiper/css/effect-fade';
 import group from '../../../assets/group.jpg';
 import laptop from '../../../assets/laptop.jpg';
 import student from '../../../assets/student.jpg';
+import { Link } from 'react-router';
 
 const HeroSection = () => {
   
@@ -50,9 +51,12 @@ const HeroSection = () => {
               <p className="text-lg sm:text-xl md:text-2xl mt-6 max-w-3xl mx-auto font-light animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
                 Transform your potential into excellence with world-class education and collaborative learning environments
               </p>
-              <button className="btn btn-primary mt-8 px-8 py-3 text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
+              <Link to="/register">
+              
+              <button className="btn btn-primary mt-8 text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
                 Start Your Journey
               </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -74,9 +78,12 @@ const HeroSection = () => {
               <p className="text-lg sm:text-xl md:text-2xl mt-6 max-w-3xl mx-auto font-light animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
                 Access personalized learning paths designed to match your goals, schedule, and learning style
               </p>
-              <button className="btn btn-primary mt-8 px-8 py-3 text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
+              <Link to="/register">
+              
+              <button className="btn btn-primary mt-8 text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
                 Explore Courses
               </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -98,9 +105,12 @@ const HeroSection = () => {
               <p className="text-lg sm:text-xl md:text-2xl mt-6 max-w-3xl mx-auto font-light animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
                 Experience cutting-edge learning technology that adapts to your needs and prepares you for tomorrow
               </p>
-              <button className="btn btn-primary mt-8 px-8 py-3 text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
+              <Link to="/register">
+              
+              <button className="btn btn-primary mt-8 text-lg hover:scale-105 transition-transform duration-300 animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
                 Join Now
               </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
