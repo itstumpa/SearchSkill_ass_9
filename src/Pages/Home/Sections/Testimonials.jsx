@@ -14,7 +14,7 @@ const Testimonials = () => {
 
   return (
     <section className=" bg-linear-to-r from-indigo-50 via-white to-indigo-50">
-      <h2 className="text-2xl pt-8 md:text-3xl lg:text-4xl font-bold text-center text-[#5754E8] mb-8">
+      <h2 className="text-2xl pt-8 md:text-3xl lg:text-4xl font-bold text-center text-[#2f2f2f] mb-8">
         Success Stories
       </h2>
 
