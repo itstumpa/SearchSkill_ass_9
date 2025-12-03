@@ -39,6 +39,11 @@ const PopularSkills = () => {
                   ${skill.price}
                 </h4>
               </div>
+              <div>
+        <h3 className="my-1 text-sm md:text-md text-gray-600 h-16 overflow-hidden">
+                  {skill.description}
+                </h3>
+</div>
 
               <div className="flex justify-between text-sm md:text-base text-gray-600 mt-auto pt-1">
                 <span className="flex items-center gap-1 bg-[#e1e0ff] p-2 rounded-md text-red-600 font-semibold">

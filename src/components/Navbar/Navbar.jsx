@@ -100,10 +100,11 @@ const Navbar = () => {
             </li>
             {!user ? (
               <>
+              <li><NavLink to="/all-skills">All Skills</NavLink></li>
+ 
               <li><NavLink to="/about">About</NavLink></li>
 <li><HashLink smooth to="/#how-it-works">How It Works</HashLink></li>
 <li><HashLink smooth to="/#contact">Contact</HashLink></li>
-                <li><NavLink to="/register">Register</NavLink></li>
                 <li><NavLink to="/login">Login</NavLink></li>
               </>
             ) : (
@@ -126,7 +127,7 @@ const Navbar = () => {
         <NavLink to="/" className="flex items-center gap-2">
           <img
             src="/logo.png"
-            alt="STAR.IO Logo"
+            alt=" Logo"
             className="h-6 w-6 md:h-8 md:w-8"
           />
           <span className="text-lg md:text-xl font-bold">SearchSkill</span>
@@ -142,10 +143,10 @@ const Navbar = () => {
           </li>
           {!user ? (
             <>
+              <li><NavLink to="/all-skills">All Skills</NavLink></li>
               <li><NavLink to="/about">About</NavLink></li>
 <li><HashLink smooth to="/#how-it-works">How It Works</HashLink></li>
 <li><HashLink smooth to="/#contact">Contact</HashLink></li>
-              <li><NavLink to="/register">Register</NavLink></li>
               <li><NavLink to="/login">Login</NavLink></li>
             </>
           ) : (
