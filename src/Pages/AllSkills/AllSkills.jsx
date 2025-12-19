@@ -51,7 +51,7 @@ const AllSkills = () => {
           </h2>
           <p className="text-center mb-8 text-sm md:text-md lg:w-2/4 mx-auto ">
             Connect with locals to exchange today’s most popular skills in a
-            trusted space. Turn your talents into opportunities with an
+            trusted space. Turn your talents into opportunities and an
             easy-to-use local skills marketplace.
           </p>
 
